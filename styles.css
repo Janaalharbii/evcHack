@@ -1,0 +1,78 @@
+body {
+    background-color: #e1ccbd;
+    margin: 0;
+}
+.navbar-custom {
+    background-color: #b58f68;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.form-control {
+    width: 200px;
+    margin-right: 5px;
+}
+.btn-search, .btn-primary {
+    background-color: #8B4513;
+    color: white;
+    border: none;
+}
+.btn-primary:hover, .btn-search:hover {
+    background-color: #A0522D;
+}
+.main-image-container {
+    position: relative;
+    margin-top: 0;
+    padding-top: 40px; 
+}
+.main-image {
+    width: 100%;
+    height: auto;
+}
+.btn-details {
+    position: absolute;
+    top: 60%;
+    right: 10%;
+    background-color: #A67C52;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    transform: translateY(-50%);
+}
+.btn-details:hover {
+    background-color: #8B4513;
+}
+.map-container {
+    height: 400px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
+footer p {
+    margin: 10px 0;
+}
+footer .social-icons {
+    margin-top: 10px;
+}
+footer .social-icons a {
+    color: #333;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+footer .social-icons a:hover {
+    color: #655107;
+}

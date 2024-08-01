@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Navbar Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">أثر</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">أماكن</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            تذاكر
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">حول مكة المكرمة</a></li>
+                            <li><a class="dropdown-item" href="#">حول المدينة المنورة</a></li>
+                            <li><a class="dropdown-item" href="#">حول تبوك</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">عنا</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-search" type="submit">بحث</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="main-image-container">
+        <img src="images/pic7.jpeg" class="d-block w-100 main-image" alt="...">
+    </div>
+    <section class="Products">
+        <div class="text-center">
+            <h2>الأماكن التاريخية</h2>
+        </div>
+    </section>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 pb-1 pb-md-0">
+                <div class="card">
+                    <img class="card-img-top" src="images/pic1.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">المعارك و الغزوات</h5>
+                        <p class="card-text">استكشف قصص البطولات والمعارك التي خاضها المسلمون في سبيل نشر العدل والسلام</p>
+                        <a href="Albaiah.html" class="btn btn-primary">القائمة</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 pb-1 pb-md-0">
+                <div class="card">
+                    <img class="card-img-top" src="images/pic2.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">معالم إسلامية</h5>
+                        <p class="card-text">اكتشف مجموعة من المعالم الإسلامية التي تحمل في طياتها تاريخًا عريقًا وثقافةً غنية</p>
+                        <a href="hera.html" class="btn btn-primary">القائمة</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 pb-1 pb-md-0">
+                <div class="card">
+                    <img class="card-img-top" src="images/pic3.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">المساجد</h5>
+                        <p class="card-text">اكتشف جمال وروحانية المساجد الإسلامية، ليست فقط أماكن للعبادة بل أيضًا تحف معمارية</p>
+                        <a href="holymosque.html" class="btn btn-primary">القائمة</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="map" class="map-container"></div>
+    </div>
+    <script>
+        var map;
+        var userMarker;
+        var markers = [
+            {coords: {lat: 21.4377316, lng: 39.8315045}, content: 'المغمس'},
+            {coords: {lat: 21.4422374, lng: 39.8382819}, content: 'مسجد الإجابة'},
+            {coords: {lat: 21.3777790, lng: 39.8505627}, content: 'غار ثور'},
+            {coords: {lat: 21.4560115, lng: 39.8570567}, content: 'جبل النور'},
+            {coords: {lat: 21.4247323, lng: 39.8672591}, content: 'مسجد البيعة'},
+            {coords: {lat: 21.4314858, lng: 39.8165828}, content: 'بئر طوى'},
+            {coords: {lat: 21.3881817, lng: 39.9142251}, content: 'عين زبيدة'}
+        ];
+
+        function initMap() {
+            var options = {
+                zoom: 12,
+                center: {lat: 21.422510, lng: 39.826168}
+            };
+            map = new google.maps.Map(document.getElementById('map'), options);
+
+            var historicIcon = {
+                url: "https://cdn-icons-png.flaticon.com/128/2414/2414564.png",
+                scaledSize: new google.maps.Size(32, 32),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(16, 32)
+            };
+
+            var userIcon = {
+                url: "https://cdn-icons-png.flaticon.com/128/9435/9435139.png",
+                scaledSize: new google.maps.Size(32, 32),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(16, 32)
+            };
+
+            for (var i = 0; i < markers.length; i++) {
+                addMarker(markers[i], historicIcon);
+            }
+
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(
+                    function(position) {
+                        var userLocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+
+                        if (!userMarker) {
+                            userMarker = new google.maps.Marker({
+                                position: userLocation,
+                                map: map,
+                                icon: userIcon,
+                                title: 'Your Location'
+                            });
+                        } else {
+                            userMarker.setPosition(userLocation);
+                        }
+
+                        markers.forEach(function(marker) {
+                            var distance = calculateDistance(userLocation, marker.coords);
+                            if (distance < 0.5) {
+                                notifyUser(`You're close to ${marker.content}, a historic place!`);
+                            }
+                        });
+
+                        map.setCenter(userLocation);
+                    },
+                    function(error) {
+                        console.error('Error getting location:', error);
+                        alert('Unable to retrieve your location. Please ensure location services are enabled.');
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        maximumAge: 30000,
+                        timeout: 27000
+                    }
+                );
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function addMarker(props, Icon) {
+            var marker = new google.maps.Marker({
+                position: props.coords,
+                map: map,
+                icon: Icon,
+                title: props.content
+            });
+
+            if (props.content) {
+                var infoWindow = new google.maps.InfoWindow({
+                    content: props.content
+                });
+
+                marker.addListener('click', function(){
+                    infoWindow.open(map, marker);
+                });
+            }
+        }
+
+        function calculateDistance(coord1, coord2) {
+            var R = 6371; // Radius of the Earth in km
+            var dLat = (coord2.lat - coord1.lat) * (Math.PI / 180);
+            var dLng = (coord2.lng - coord1.lng) * (Math.PI / 180);
+            var a = 
+                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(coord1.lat * (Math.PI / 180)) * Math.cos(coord2.lat * (Math.PI / 180)) *
+                Math.sin(dLng / 2) * Math.sin(dLng / 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var distance = R * c;
+            return distance;
+        }
+
+        function notifyUser(message) {
+            alert(message);
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUgqKuYaFl-KDUdSyur6ZabTKKw1Ymyeo&callback=initMap"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<footer class="footer">
+    <div class="container text-center">
+        <p>&copy; 1446 أثر, جميع الحقوق محفوظة</p>
+        <div class="social-icons">
+            <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+            <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+</html>
