@@ -7,6 +7,39 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .main-image-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .btn-explore {
+            position: absolute;
+            top: 65%; /* زيادة المسافة من الأعلى */
+            right: 6%; /* تحريك الزر لليمين */
+            transform: translate(0, -50%);
+            background-color: rgba(255, 255, 255, 0);
+            color: white;
+            border: 2px solid white;
+            border-radius: 50px;
+            padding: 15px 30px; /* زيادة حجم الزر */
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px; /* زيادة حجم الخط */
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 1;
+        }
+
+        .btn-explore:hover {
+            background-color: rgba(252, 198, 118, 0.641);
+            transform: translate(0, -50%) scale(1.1);
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
@@ -25,13 +58,13 @@
                             تذاكر
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">حول المعالم الإسلامية </a></li>
-                            <li><a class="dropdown-item" href="#">حول المساجد </a></li>
-                            <li><a class="dropdown-item" href="#"> حول أماكن الغزوات</a></li>
+                            <li><a class="dropdown-item" href="#">حول المعالم الإسلامية</a></li>
+                            <li><a class="dropdown-item" href="#">حول المساجد</a></li>
+                            <li><a class="dropdown-item" href="#">حول أماكن الغزوات </a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">من نحن؟</a>
+                        <a class="nav-link" href="#">عنا</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -43,6 +76,7 @@
     </nav>
     <div class="main-image-container">
         <img src="images/pic7.jpeg" class="d-block w-100 main-image" alt="...">
+        <a href="https://huggingface.co/spaces/Janaalharbii/HistoricalPlaces" class="btn-explore">استكشاف</a>
     </div>
     <section class="Products">
         <div class="text-center">
@@ -210,7 +244,11 @@
 <footer class="footer">
     <div class="container text-center">
         <p>&copy; 1446 أثر, جميع الحقوق محفوظة</p>
-        <div class="social-icons"><a href="#" class="social-icon"><i class="fab fa-facebook-f"></i><a href="#" class="social-icon"><i class="fab fa-twitter"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </div>
 </footer>
