@@ -1,5 +1,5 @@
 # 🕌 Ather أثر – Islamic Heritage Explorer
 
-**Ather** is an AI-powered web platform designed to help users discover and learn about significant Islamic historical landmarks. Built using **Flask**, enhanced with **AI models**, and integrated with **real-time GPS detection**, Ather allows users to explore cultural heritage in a smart, location-aware way.
+**Ather** is a web platform designed to help users explore and learn about Islamic historical landmarks across the region. The site includes an interactive map, categorized heritage pages, GPS-based alerts, and an optional AI feature to recognize landmarks from images.
 
 🔗 [Live Demo](https://abdulshakoor10.github.io/evcHack/)
